@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=dvice-width, initial-scale=1">
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/basics.js" charset="UTF-8"></script>
+	<link rel="stylesheet" href="js/jquery-ui.css" />
+    <link rel="tylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/basics.css">
+    <script>
+    $(function(){
+        if(navigator.geolocation){
+            var id=navigator.geolocation.watchPosition(
+                function(pos){
+                    $('#latitude').html(pos.coords.latitude);
+                    $('#longitude').html(pos.coords.longitude);
+                }
+            );
+    
+        $('#btn').click(function(){
+            navigator.geolocation.clearWatch(id);
+        });
+       } else {
+            window.alert('use the sumaho');
+       }
+    
+    
+    });
+    </script>
+    <title>location</title>
+  </head>
+  <body>
+    <a href="{{ url }}">{{ url_linktext }}</a>
+    <p>userName:{{ user }}</p>
+	<div class="container">
+        <ul>
+        <li>経度：<span id="latitude"></span></li>
+        <li>緯度：<span id="longitude"></span></li>
+        </ul>
+        <input id="btn" type="button" value="監視をやめる" />
+        
+	</div>
+  </body>
+
+{% endautoescape %}
+</html>
