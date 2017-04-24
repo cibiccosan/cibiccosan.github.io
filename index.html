@@ -1,50 +1,31 @@
 <!DOCTYPE html>
 {% autoescape true %}
 <html>
-  <head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=dvice-width, initial-scale=1">
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/basics.js" charset="UTF-8"></script>
-	<link rel="stylesheet" href="js/jquery-ui.css" />
-    <link rel="tylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/skeleton.css">
-	<link rel="stylesheet" href="css/basics.css">
-    <script>
-    $(function(){
-        if(navigator.geolocation){
-            var id=navigator.geolocation.watchPosition(
-                function(pos){
-                    $('#latitude').html(pos.coords.latitude);
-                    $('#longitude').html(pos.coords.longitude);
-                }
-            );
-    
-        $('#btn').click(function(){
-            navigator.geolocation.clearWatch(id);
-        });
-       } else {
-            window.alert('use the sumaho');
-       }
-    
-    
-    });
-    </script>
-    <title>location</title>
-  </head>
-  <body>
-    <a href="{{ url }}">{{ url_linktext }}</a>
-    <p>userName:{{ user }}</p>
-	<div class="container">
-        <ul>
-        <li>経度：<span id="latitude"></span></li>
-        <li>緯度：<span id="longitude"></span></li>
-        </ul>
-        <input id="btn" type="button" value="監視をやめる" />
-        
-	</div>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title>PC側</title>
+<style>
+#image{
+  -webkit-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+#image.is-landscape{
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+</style>
+</head>
+<body>
+<a href="{{ url }}">{{ url_linktext }}</a>
+<p>userName:{{ user }}</p>
+<img id="image" src="https://s3-ap-northeast-1.amazonaws.com/new-tutorial/smartphone.min.svg" alt="スマートフォン">
+<div id="output"></div>
+<script src='https://cdn.mlkcca.com/v0.6.0/milkcocoa.js'></script>
+<script src="js/main-pc.js"></script>
+</body>
 
 {% endautoescape %}
 </html>
