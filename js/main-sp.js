@@ -1,7 +1,7 @@
 window.onload = function(){
   
   
-  var cuurentMode = 'portrait';
+  var currentMode = 'portrait';
   var output = document.getElementById('output');
 
   var milkcocoa = MilkCocoa.connectWithApiKey('juicej1k05nbr.mlkcca.com', 'AFLDGOANKJMBJFHM', 'UILVRKRaUEScekIIQFOZFSQQLiJOCmLkjDniSGfZ');
