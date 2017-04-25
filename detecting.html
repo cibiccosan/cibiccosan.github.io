@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=dvice-width, initial-scale=1">
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="js/jquery-ui.css" />
+         <link rel="stylesheet" href="js/reset.css" />
+         <link rel="stylesheet" href="js/skelton.css" />
+        <script>
+            $(function(){
+               navigator.geolocation.watchPosition{
+                   function(position){
+                       $('#lat').html(position.coords.latitude);
+                       $('#lon').html(position.coords.longitude);
+                   });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="lat"></div>
+        <div id="lon"></div>
+
+    </body>
+</html>
